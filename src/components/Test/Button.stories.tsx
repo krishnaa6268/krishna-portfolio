@@ -1,0 +1,23 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Button } from './Button';
+
+const meta = {
+  title: 'UI/Button',
+  component: Button,
+  tags: ['autodocs'], // enables Docs page auto generation
+  args: {
+    label: 'Click Me',
+    variant: 'primary',
+  },
+} satisfies Meta<typeof Button>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = {};
+
+export const Secondary: Story = {
+  args: {
+    variant: 'secondary',
+  },
+};
