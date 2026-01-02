@@ -1,5 +1,6 @@
 // src/components/Skills.tsx
-import React, { useState } from "react";
+import { useState } from "react";
+import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -128,11 +129,11 @@ const cardVariant = {
   },
 };
 
-const Skills: React.FC = () => {
+const Skills = () => {
   const [activeCert, setActiveCert] = useState<Certificate | null>(null);
 
   // inline style for the complex radial background (avoids Tailwind arbitrary parsing issues)
-  const radialBgStyle: React.CSSProperties = {
+  const radialBgStyle: CSSProperties = {
     background:
       "radial-gradient(circle at top, rgba(56,189,248,0.18), transparent 55%), radial-gradient(circle at bottom, rgba(139,92,246,0.18), transparent 55%)",
   };

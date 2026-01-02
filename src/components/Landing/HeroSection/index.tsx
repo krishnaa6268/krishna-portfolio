@@ -2,7 +2,7 @@
 import React, { useRef } from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
-import { gsap } from "gsap";
+import gsap from "gsap";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import {
   SiHtml5,
