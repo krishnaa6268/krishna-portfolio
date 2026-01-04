@@ -81,7 +81,7 @@ const HeroSection: React.FC = () => {
     words: [
       "Software Developer.",
       "Curious Learner.",
-      "Builder.",
+      "UI Builder.",
       "Tech Volunteer.",
       "Freelancer.",
     ],
@@ -256,8 +256,8 @@ const HeroSection: React.FC = () => {
           </h2>
 
           <p className="text-[14px] md:text-[18px] leading-relaxed lg:max-w-xl text-neutral-300">
-            I’m a Frontend Software Developer who enjoys building simple, fast,
-            and modern websites that feel good to use. I focus on clean design,
+            I’m a Software Developer who enjoys building simple, fast, and
+            modern websites that feel good to use. I focus on clean design,
             smooth interactions, and creating experiences that make sense to
             real people. <br /> <br />
             <span className="hover:text-[#327b97]">
@@ -272,7 +272,7 @@ const HeroSection: React.FC = () => {
               e.preventDefault();
               scrollToSection("contact");
             }}
-            className="max-w-[290px] inline-flex whitespace-nowrap items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/60 px-4 py-2 text-xs sm:text-[0.9rem] text-slate-300 shadow-[0_0_30px_rgba(15,23,42,0.7)] text-center"
+            className="max-w-[238px] sm:max-w-[272px] inline-flex whitespace-nowrap items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/60 px-4 py-2 text-xs sm:text-[0.9rem] text-slate-300 shadow-[0_0_30px_rgba(15,23,42,0.7)] text-center"
           >
             <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-400 animate-pulse" />
             <span>Available for freelance & remote work</span>
