@@ -3,6 +3,7 @@ import { CgMenuRight } from "react-icons/cg";
 import { FiSun, FiMoon, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { scrollToSection } from "../../utills/header.utils";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const [isSticky, setIsSticky] = useState(false);
@@ -59,32 +60,35 @@ export default function Header() {
           backdrop-blur-xl border-b border-white/10
           ${
             isSticky
-              ? "bg-black shadow-[0_4px_20px_rgba(0,0,0,0.4)] py-2"
-              : "bg-black py-3"
+              ? "-pb-2"
+              : "bg-black pb-1"
           }
         `}
       >
-        {/* gradient top line */}
         <div className="absolute bottom-0 left-0 h-px w-full bg-linear-to-r from-amber-400 via-pink-500 to-purple-500" />
-
-        {/* soft glow blob */}
         <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-linear-to-tr from-amber-500/10 via-pink-500/10 to-purple-500/10 blur-3xl" />
-        <div className="max-w-[1600px] mx-auto flex items-center justify-between px-6">
-          {/* LOGO */}
+        <div className="max-w-[1600px] mx-auto flex items-center justify-between px-6 rounded-3xl ">
           <Link
             to="#"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("home");
             }}
-            className="border-amber-400 border-2 rounded-full w-16 h-16 bg-white"
+            className="group relative inline-flex items-center"
           >
-            <img
-              src="/images/k-logo.png"
-              alt="Logo"
-              className="h-10 sm:h-12 drop-shadow-[0_0_8px_rgba(0,200,255,0.5)]
-              transition-transform duration-300 hover:scale-105"
-            />
+            <motion.span
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="
+      relative z-10 text-xl sm:text-2xl font-semibold tracking-wide
+      bg-clip-text text-transparent
+      bg-linear-to-r from-blue-400 via-red-400 to-blue-950
+      drop-shadow-[0_0_12px_rgba(56,189,248,0.35)] py-4
+    "
+            >
+              {"<Krishna/>"}
+            </motion.span>
           </Link>
 
           {/* DESKTOP MENU */}
@@ -105,7 +109,7 @@ export default function Header() {
                 </span>
 
                 <span
-                  className="absolute left-0 -bottom-1 w-0 h-[2px] bg-red-500
+                  className="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-500
         group-hover:w-full transition-all duration-300"
                 />
               </Link>
@@ -137,36 +141,36 @@ export default function Header() {
       {/* MOBILE DRAWER */}
       <div
         ref={sidebarRef}
-        className={`fixed top-0 right-0 h-full w-[80%] max-w-[320px]
-          bg-[#0d1224] text-white z-50 py-6 shadow-xl border-l border-white/10
+        className={`fixed top-0 right-0 h-full w-[80%] max-w-[220px]
+          bg-[#0d1224] text-white z-50 py-5 shadow-xl border-l border-white/10
           transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.3,1)]
           ${open ? "translate-x-0" : "translate-x-full"}`}
       >
         {/* Close Button */}
-        <div className="flex justify-between pb-6 px-6">
+        <div className="flex justify-between pb-5 px-4">
           {/* THEME TOGGLE */}
           <button
             onClick={toggleTheme}
-            className=" p-2 rounded-full hover:bg-white/10 
-              transition duration-300 active:scale-90"
+            className="rounded-full hover:bg-white/10 
+              transition duration-300 active:scale-90 shrink-0 p-1.5"
           >
             {dark ? (
-              <FiSun size={20} className="text-yellow-500" />
+              <FiSun size={16} className="text-yellow-500" />
             ) : (
-              <FiMoon size={20} className="text-gray-500" />
+              <FiMoon size={16} className="text-gray-500" />
             )}
           </button>
           <button
             onClick={() => setOpen(false)}
-            className="text-4xl hover:text-red-500 active:scale-90 transition"
+            className=" hover:text-red-300 active:scale-90 transition p-1 rounded-full bg-gray-800 hover:bg-gray-600"
           >
-            <FiX />
+            <FiX size={18} />
           </button>
         </div>
         <div className="border h-px mb-6"></div>
 
         {/* Sidebar Menu */}
-        <div className="flex flex-col gap-6 text-lg px-6">
+        <div className="flex flex-col gap-6 text-lg px-4">
           {links.map((item, i) => (
             <Link
               key={item.label}

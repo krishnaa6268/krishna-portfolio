@@ -141,7 +141,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="relative py-10 lg:py-20 px-6 font-assistant "
+      className="relative py-10 lg:py-20 px-6 font-assistant"
       style={{ backgroundColor: "#050816" }}
     >
       <img
@@ -155,7 +155,7 @@ const Skills = () => {
         aria-hidden
       />
 
-      <div className="relative z-10 mx-auto max-w-6xl ">
+      <div className="relative z-10 mx-auto max-w-6xl gap-3 pt-5 pb-7">
         {/* heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -164,19 +164,19 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <p className="text-sm uppercase tracking-[0.35em] text-sky-400 mt-6">
+          <p className="text-sm uppercase tracking-[0.35em] text-sky-400 mt-5 lg:mt-0">
             Skillset & Certifications
           </p>
           <h2 className="mt-3 text-3xl font-bold text-slate-100 sm:text-4xl md:text-5xl">
             Skills & <span className="text-sky-400">Technologies</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-400 sm:text-base">
+          <p className="mx-auto py-4 max-w-2xl text-sm text-slate-400 sm:text-base line-clamp-2">
             These are the technologies and tools I work with daily, along with
             the certifications that shaped my journey.
           </p>
         </motion.div>
 
-        {/* skills grid */}
+        {/* skills grid - lg */}
         <motion.div
           variants={containerVariant}
           initial="hidden"
@@ -231,6 +231,7 @@ const Skills = () => {
           ))}
         </motion.div>
 
+          {/* skills grid - mob */}
         <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillsData.map((category) => (
             <motion.div
@@ -259,7 +260,7 @@ const Skills = () => {
                     key={skill.name}
                     whileHover={{ scale: 1.05 }}
                     className={`
-              rounded-full px-3 py-1.5 text-xs font-medium
+              rounded-full px-2 py-1 text-xs font-medium
               border border-white/10 transition
               ${
                 skill.level === "Expert" && "bg-emerald-500/15 text-emerald-300"

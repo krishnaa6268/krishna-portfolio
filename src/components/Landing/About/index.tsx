@@ -49,13 +49,12 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-[#050816] py-10 lg:py-20 px-6 font-assistant"
+      className="relative overflow-hidden bg-[#050816] pt-10 pb-15 px-5 md:px-6 font-assistant"
     >
       <img
         src="/images/stars.png"
         className="w-full h-full absolute top-0 left-0 object-fill pointer-events-none"
       />
-      {/* subtle background accents */}
       <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-fuchsia-500/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl" />
 
@@ -64,11 +63,11 @@ const About: React.FC = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
-        className="max-w-[1600px] mx-auto"
+        className="max-w-[1600px] mx-auto pt-5"
       >
         {/* Header */}
 
-        <div className="flex flex-col items-center text-center gap-3 mt-6 mb-12 sm:mb-16">
+        <div className="flex flex-col items-center text-center gap-3 pt-5 pb-7">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
             Get to{" "}
             <span className="relative inline-block group">
@@ -79,11 +78,8 @@ const About: React.FC = () => {
             </span>{" "}
             me
           </h2>
-          <p className="max-w-4xl my-3 text-base text-[18px] leading-relaxed  text-neutral-400 mx-auto">
-            I'm a frontend-focused developer who loves crafting clean,
-            responsive, and performant experiences. My journey started with
-            curiosity about how the web works – and turned into a passion for
-            building products that feel delightful to use.
+          <p className="max-w-4xl text-base text-[18px] leading-relaxed  text-neutral-400 mx-auto line-clamp-2">
+            Curious about the web – and focused on building delightful experiences.
           </p>
           <p className="text-sm text-neutral-400 flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -94,7 +90,7 @@ const About: React.FC = () => {
         {/* Main grid */}
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
           {/* What I Do */}
-          <motion.div variants={stagger} className="space-y-6">
+          <motion.div variants={stagger} className="space-y-4">
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-linear-to-r from-pink-500 to-sky-500" />
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-400">
@@ -102,7 +98,7 @@ const About: React.FC = () => {
               </p>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-semibold text-slate-50">
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-slate-50">
               Turning ideas into interactive experiences.
             </h3>
 
@@ -239,7 +235,7 @@ const About: React.FC = () => {
 
               <div className="mt-5 space-y-4 text-sm text-slate-300">
                 <div className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-pink-500" />
+                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-pink-500" />
                   <p>
                     Completed my{" "}
                     <span className="font-medium text-slate-50">
@@ -250,7 +246,7 @@ const About: React.FC = () => {
                   </p>
                 </div>
                 <div className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-sky-500" />
+                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-sky-500" />
                   <p>
                     Currently sharpening my{" "}
                     <span className="font-medium text-slate-50">
@@ -261,7 +257,7 @@ const About: React.FC = () => {
                   </p>
                 </div>
                 <div className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-emerald-500" />
+                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-emerald-500" />
                   <p>
                     My goal is simple:{" "}
                     <span className="font-medium text-slate-50">
@@ -273,17 +269,17 @@ const About: React.FC = () => {
                 </div>
               </div>
 
-              <div className="mt-7 flex flex-wrap items-center gap-4">
+              <div className="pt-10 flex flex-col justify-center lg:justify-start items-center gap-4">
                 <button
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection("contact");
                   }}
-                  className="relative inline-flex items-center justify-center rounded-full border border-pink-500/60 bg-linear-to-r from-pink-500 via-fuchsia-500 to-sky-500 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-pink-500/25 transition-transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                  className="relative inline-flex items-center justify-center rounded-full border border-pink-500/60 bg-linear-to-r from-pink-500 via-fuchsia-500 to-sky-500 px-5 py-1.5 text-sm font-semibold text-white shadow-lg shadow-pink-500/25 transition-transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
                 >
                   Let&apos;s Work Together
                 </button>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-center text-slate-400">
                   Open to internships, freelance work, and full-time roles in
                   frontend / web development.
                 </p>

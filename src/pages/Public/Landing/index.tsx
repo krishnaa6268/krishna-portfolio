@@ -9,7 +9,7 @@ import Skills from "../../../components/Landing/Skills";
 
 export default function Landing(): JSX.Element {
   return (
-    <div className=" mx-auto">
+    <div className="mx-auto">
       {/* Global fluid cursor overlay */}
       {/* <SplashCursor /> */}
 

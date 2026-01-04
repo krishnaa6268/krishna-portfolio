@@ -12,12 +12,10 @@ export default function Pages() {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        {/* Public Routes */}
         <Route element={<MainLayout />}>
           <Route path={ROUTES.LANDING} element={<Landing />} />
         </Route>
 
-        {/* Always keep at last */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

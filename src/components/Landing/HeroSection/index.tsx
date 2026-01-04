@@ -5,12 +5,13 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import {
-  SiHtml5,
-  SiTailwindcss,
-  SiJavascript,
+  // SiHtml5,
+  // SiTailwindcss,
+  // SiJavascript,
   SiReact,
   SiTypescript,
   SiNodedotjs,
+  SiExpress,
 } from "react-icons/si";
 import { GrMysql } from "react-icons/gr";
 import { ImBlog } from "react-icons/im";
@@ -18,7 +19,6 @@ import { Link } from "react-router-dom";
 import { scrollToSection } from "../../../utills/header.utils";
 
 const HERO_IMAGE_SRC = "/images/k-black.png"; // <- update to your path
-
 const socials = [
   {
     icon: FaLinkedin,
@@ -37,6 +37,33 @@ const socials = [
     href: "/blogs",
     label: "My Blogs",
     tooltip: "Read my blogs",
+  },
+];
+const primaryStack = [
+  {
+    id: "react",
+    Icon: SiReact,
+    color: "text-sky-400",
+  },
+  {
+    id: "typescript",
+    Icon: SiTypescript,
+    color: "text-cyan-400",
+  },
+  {
+    id: "node",
+    Icon: SiNodedotjs,
+    color: "text-green-700",
+  },
+  {
+    id: "express",
+    Icon: SiExpress,
+    color: "text-white",
+  },
+  {
+    id: "mysql",
+    Icon: GrMysql,
+    color: "text-blue-400",
   },
 ];
 
@@ -109,33 +136,117 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <div className="relative pb-28 pt-10 lg:py-30 px-6 overflow-hidden bg-gray-950 " id="home">
+    <section
+      className="relative pt-8 pb-15 px-5 md:px-6 overflow-hidden bg-gray-950 "
+      id="home"
+    >
       <img
         src="/images/stars.png"
-        className="w-full h-full absolute top-0  left-0 object-fill pointer-events-none"
+        className="w-full h-full absolute top-0 left-0 object-fill pointer-events-none"
       />
-      {/* gradient top line */}
-      {/* <div className="absolute bottom-0 left-0 h-px w-full bg-linear-to-r from-amber-400 via-pink-500 to-purple-500" /> */}
-      <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-10 ">
+      <div className="max-w-[1600px] mx-auto flex flex-col lg:flex-row justify-between items-center gap-4">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex lg:hidden mx-auto justify-center"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative"
+          >
+            {/* Ambient Glow */}
+            <motion.div
+              animate={{ opacity: [0.35, 0.6, 0.35] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 rounded-full bg-linear-to-br from-blue-900/60 via-indigo-800/40 to-slate-900/60 blur-3xl scale-110"
+            />
+
+            {/* Floating avatar wrapper */}
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="relative rounded-full p-[2px] bg-linear-to-br from-red-900 via-indigo-800 to-slate-900 shadow-2xl"
+            >
+              <div className="relative rounded-full p-[4px] bg-slate-950 overflow-visible">
+                {/* Avatar wrapper (clipped) */}
+                <motion.div
+                  whileTap={{ scale: 0.96 }}
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: "spring", stiffness: 180 }}
+                  className="relative h-35 w-35 rounded-full overflow-hidden bg-black z-10"
+                >
+                  <img
+                    src={HERO_IMAGE_SRC}
+                    alt="Krishna Kumar Gupta"
+                    className="h-full w-full object-cover"
+                  />
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  whileHover={{ scale: 1.08, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+                  className="
+      absolute -right-[48%] top-[10%] z-20
+      rounded-full bg-emerald-700
+      px-3 py-1 text-xs font-medium text-white
+      shadow-lg cursor-pointer
+      whitespace-nowrap
+    "
+                >
+                  Frontend Developer
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  whileHover={{ scale: 1.08, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ delay: 0.45, type: "spring", stiffness: 200 }}
+                  className="
+      absolute -left-[48%] bottom-[10%] z-20
+      rounded-full bg-amber-500
+      px-3 py-1 text-xs font-medium text-black
+      shadow-lg cursor-pointer
+      whitespace-nowrap
+    "
+                >
+                  React • TypeScript
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* 🟢 Online indicator */}
+            <span className="absolute bottom-2 right-5 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-slate-900 animate-pulse" />
+          </motion.div>
+        </motion.div>
+
         {/* LEFT: Heading Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col gap-6"
+          className="flex flex-col gap-4 lg:gap-6"
         >
-          <h4 className="text-lg font-light tracking-widest text-neutral-400">
+          <h4 className="text-sm sm:text-lg text-center lg:text-left font-light tracking-widest text-neutral-400">
             WELCOME TO MY CUBE
           </h4>
 
-          <h1 className="text-5xl sm:text-6xl font-extrabold leading-tight font-lora italic">
+          <h1 className="text-[28px] sm:text-3xl md:text-5xl xl:text-6xl sm:text-center lg:text-left font-extrabold leading-tight font-lora italic">
             Hey, I&apos;m{" "}
             <span className="bg-[#ff014f] text-transparent bg-clip-text">
               Krishna <span className="hidden md:inline">K.</span> Gupta
             </span>
           </h1>
 
-          <h2 className="text-3xl sm:text-4xl font-semibold flex items-center gap-2">
+          <h2 className="text-[18px] sm:text-2xl md:text-3xl xl:text-4xl font-semibold flex items-center gap-2">
             <span>{text}</span>
             <Cursor
               cursorBlinking={false}
@@ -144,7 +255,7 @@ const HeroSection: React.FC = () => {
             />
           </h2>
 
-          <p className="text-base text-[18px] leading-relaxed max-w-xl text-neutral-300">
+          <p className="text-[14px] md:text-[18px] leading-relaxed lg:max-w-xl text-neutral-300">
             I’m a Frontend Software Developer who enjoys building simple, fast,
             and modern websites that feel good to use. I focus on clean design,
             smooth interactions, and creating experiences that make sense to
@@ -161,9 +272,9 @@ const HeroSection: React.FC = () => {
               e.preventDefault();
               scrollToSection("contact");
             }}
-            className="w-[95%] lg:w-[40%] inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/60 px-4 py-2 text-xs sm:text-[0.9rem] text-slate-300 shadow-[0_0_30px_rgba(15,23,42,0.7)]"
+            className="max-w-[290px] inline-flex whitespace-nowrap items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/60 px-4 py-2 text-xs sm:text-[0.9rem] text-slate-300 shadow-[0_0_30px_rgba(15,23,42,0.7)] text-center"
           >
-            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-400 animate-pulse" />
             <span>Available for freelance & remote work</span>
           </Link>
 
@@ -171,15 +282,15 @@ const HeroSection: React.FC = () => {
             variants={itemFadeUp}
             initial="hidden"
             animate="show"
-            className="mt-8 flex flex-col md:flex-row gap-6 justify-between items-start md:items-center"
+            className="pt-4 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center"
           >
             {/* Social icons */}
             <div>
-              <p className="text-sm tracking-widest text-neutral-400 mb-3">
+              <p className="text-sm md:text-[16px] lg:text-lg tracking-widest text-neutral-400 mb-3">
                 FIND ME IN
               </p>
 
-              <div className="flex gap-3">
+              <div className="flex gap-2.5">
                 {socials.map(({ icon: Icon, href, label, tooltip }, i) => (
                   <motion.a
                     key={i}
@@ -218,99 +329,88 @@ const HeroSection: React.FC = () => {
 
             {/* Skills */}
             <div>
-              <p className="text-lg text-neutral-400 mb-3">PRIMARY STACK</p>
-              <div className="flex gap-3">
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  className="p-3 rounded-lg bg-neutral-900 border border-white/5 shadow-md flex items-center justify-center"
-                >
-                  <SiHtml5 className="text-xl text-orange-500" />
-                </motion.div>
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  className="p-3 rounded-lg bg-neutral-900 border border-white/5 shadow-md flex items-center justify-center"
-                >
-                  <SiTailwindcss className="text-xl text-cyan-500" />
-                </motion.div>
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  className="p-3 rounded-lg bg-neutral-900 border border-white/5 shadow-md flex items-center justify-center"
-                >
-                  <SiJavascript className="text-xl text-yellow-400" />
-                </motion.div>
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  className="p-3 rounded-lg bg-neutral-900 border border-white/5 shadow-md flex items-center justify-center"
-                >
-                  <SiReact className="text-xl text-sky-400" />
-                </motion.div>
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  className="p-3 rounded-lg bg-neutral-900 border border-white/5 shadow-md flex items-center justify-center"
-                >
-                  <SiTypescript className="text-xl text-cyan-400" />
-                </motion.div>
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  className="p-3 rounded-lg bg-neutral-900 border border-white/5 shadow-md flex items-center justify-center"
-                >
-                  <SiNodedotjs className="text-xl text-green-700" />
-                </motion.div>
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  className="p-3 rounded-lg bg-neutral-900 border border-white/5 shadow-md flex items-center justify-center"
-                >
-                  <GrMysql className="text-xl text-blue-400" />
-                </motion.div>
+              <p className="text-sm md:text-[16px] lg:text-lg text-neutral-400 mb-3">
+                PRIMARY STACK
+              </p>
+              <div className="flex gap-2.5">
+                {primaryStack.map(({ id, Icon, color }) => (
+                  <motion.div
+                    key={id}
+                    whileHover={{ y: -6 }}
+                    className="p-3 rounded-lg bg-neutral-900 border border-white/5 shadow-md flex items-center justify-center"
+                  >
+                    <Icon className={`text-xl ${color}`} />
+                  </motion.div>
+                ))}
               </div>
             </div>
           </motion.div>
         </motion.div>
 
         {/* RIGHT: Image with modern background */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          className="relative w-full max-w-md lg:ml-auto cursor-pointer"
+          className="hidden lg:block max-w-md cursor-pointer perspective-distant lg:mt-15 lg:mr-6 lg:ml-6"
         >
-          {/* Floating gradient blob */}
-          <div className="absolute -left-6 -top-6 h-20 w-20 bg-yellow-600 blur-3xl rounded-full animate-pulse" />
-          {/* Dotted background */}
-          <div
-            ref={dotsRef}
-            className="absolute -left-8 -top-8 h-32 w-32 grid grid-cols-6 grid-rows-6 gap-1 opacity-60"
-          >
-            {Array.from({ length: 36 }).map((_, i) => (
-              <span
-                key={i}
-                className="h-[5px] w-[5px] rounded-full bg-neutral-400"
-              />
-            ))}
-          </div>
-          {/* Neon ring */}
-          <div className="absolute -bottom-10 -right-10 h-52 w-52 rounded-full border-4 border-amber-400 blur-[2px] animate-spin-slow" />
-          {/* Glass card behind image */}
-          <div className="absolute -top-10 -right-6 h-60 w-60 rounded-3xl backdrop-blur-xl bg-white/10 shadow-[0px_8px_40px_rgba(0,0,0,0.45)] border border-white/20" />
-          {/* Yellow block */}
-          <div
-            ref={yellowRef}
-            className="absolute -bottom-4 -left-4 h-64 w-64 bg-[#be1b4c]"
-          />
-          {/* Main image card */}
-          <div
-            ref={imageRef}
-            className="relative z-10 overflow-hidden rounded-2xl shadow-2xl bg-black aspect-4/5"
-          >
-            <img
-              src={HERO_IMAGE_SRC}
-              alt="Krishna Kumar Gupta"
-              className="h-full w-full object-cover"
+          <div className="relative">
+            {/* Ambient floating glow */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -left-10 -top-10 h-28 w-28 rounded-full bg-amber-400/30 blur-3xl"
             />
-            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent pointer-events-none" />
+
+            {/* Animated dotted field */}
+            <motion.div
+              ref={dotsRef}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+              className="absolute -left-8 -top-8 h-32 w-32 grid grid-cols-6 grid-rows-6 gap-1 opacity-60"
+            >
+              {Array.from({ length: 36 }).map((_, i) => (
+                <span
+                  key={i}
+                  className="h-[5px] w-[5px] rounded-full bg-neutral-400"
+                />
+              ))}
+            </motion.div>
+
+            {/* Glass depth card */}
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-10 -right-6 h-60 w-60 rounded-3xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
+            />
+
+            {/* Accent block */}
+            <div
+              ref={yellowRef}
+              className="absolute -bottom-5 -left-5 h-64 w-64 bg-[#be1b4c] rounded-2xl"
+            />
+
+            {/* Main image */}
+            <div
+              ref={imageRef}
+              className="relative z-10 overflow-hidden rounded-2xl shadow-[0_40px_80px_rgba(0,0,0,0.6)] bg-black aspect-4/5 transform-style-preserve-3d"
+            >
+              <img
+                src={HERO_IMAGE_SRC}
+                alt="Krishna Kumar Gupta"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
+            </div>
           </div>
-        </div>
+
+          {/* Mobile only – Enhanced */}
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
