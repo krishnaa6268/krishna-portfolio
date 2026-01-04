@@ -201,7 +201,7 @@ const HeroSection: React.FC = () => {
       whitespace-nowrap
     "
                 >
-                  Frontend Developer
+                  Software Engineer
                 </motion.div>
 
                 <motion.div
@@ -218,7 +218,7 @@ const HeroSection: React.FC = () => {
       whitespace-nowrap
     "
                 >
-                  React • TypeScript
+                  MERN • TypeScript
                 </motion.div>
               </div>
             </motion.div>
