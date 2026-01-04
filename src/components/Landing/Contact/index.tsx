@@ -80,7 +80,7 @@ export default function Contact() {
   return (
     <div
       id="contact"
-      className="relative py-10 lg:py-20 px-6 overflow-hidden bg-black font-assistant"
+      className="relative py-10 lg:py-20 px-5 lg:px-6 overflow-hidden bg-black font-assistant"
     >
       <img
         src="/images/layer-bg.png"
@@ -123,7 +123,7 @@ export default function Contact() {
           <div className="lg:col-span-7">
             <motion.div
               variants={sectionVariant}
-              className="bg-linear-to-br from-neutral-900/60 via-neutral-900/40 to-neutral-900/60 border border-white/6 rounded-3xl p-6 md:p-10 shadow-xl"
+              className="bg-linear-to-br from-neutral-900/60 via-neutral-900/40 to-neutral-900/60 border border-white/6 rounded-3xl p-4 md:p-10 shadow-xl"
             >
               <form
                 name="submit-to-google-sheet"
@@ -141,7 +141,7 @@ export default function Contact() {
                       required: "Please enter your name",
                       minLength: { value: 2, message: "Name too short" },
                     })}
-                    className={`mt-2 w-full rounded-lg px-4 py-3 bg-white text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 ${
+                    className={`mt-2 w-full rounded-lg px-4 py-2 lg:py-3 bg-white text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 ${
                       errors.name ? "ring-rose-500" : "ring-transparent"
                     }`}
                     placeholder="Enter Your Name"
@@ -168,7 +168,7 @@ export default function Contact() {
                         message: "Enter a valid email",
                       },
                     })}
-                    className={`mt-2 w-full rounded-lg px-4 py-3 bg-white text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 ${
+                    className={`mt-2 w-full rounded-lg px-4 py-2 lg:py-3 bg-white text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 ${
                       errors.email ? "ring-rose-500" : "ring-transparent"
                     }`}
                     placeholder="Enter Your Email"
@@ -191,7 +191,7 @@ export default function Contact() {
                       required: "Add a subject",
                       minLength: { value: 3, message: "Subject too short" },
                     })}
-                    className={`mt-2 w-full rounded-lg px-4 py-3 bg-white text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 ${
+                    className={`mt-2 w-full rounded-lg px-4 py-2 lg:py-3 bg-white text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 ${
                       errors.subject ? "ring-rose-500" : "ring-transparent"
                     }`}
                     placeholder="Project / Question"
@@ -219,7 +219,7 @@ export default function Contact() {
                         message: "Message must be at least 10 chars",
                       },
                     })}
-                    className={`mt-2 w-full rounded-lg px-4 py-3 bg-white text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 ${
+                    className={`mt-2 w-full rounded-lg px-4 py-2 lg:py-3 bg-white text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 ${
                       errors.message ? "ring-rose-500" : "ring-transparent"
                     }`}
                     placeholder="Tell Me About Your Project or Question..."
@@ -281,9 +281,9 @@ export default function Contact() {
 
             <motion.div
               variants={sectionVariant}
-              className="bg-linear-to-tr from-neutral-900/50 to-neutral-900/30 border border-white/6 rounded-2xl p-6 shadow-inner"
+              className="bg-linear-to-tr from-neutral-900/50 to-neutral-900/30 border border-white/6 rounded-2xl p-4 shadow-inner"
             >
-              <ul className="space-y-5 text-neutral-200">
+              <ul className="space-y-3 text-neutral-200">
                 <li className="flex gap-4 items-start">
                   <div className="text-amber-400 mt-1">
                     <FaMapMarkerAlt />
@@ -333,7 +333,7 @@ export default function Contact() {
                 </li>
               </ul>
 
-              <div className="mt-6">
+              <div className="pt-4">
                 <label
                   htmlFor="quick-note"
                   className="text-sm text-neutral-300"
