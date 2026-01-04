@@ -239,14 +239,14 @@ const HeroSection: React.FC = () => {
             WELCOME TO MY CUBE
           </h4>
 
-          <h1 className="text-[28px] sm:text-3xl md:text-5xl xl:text-6xl sm:text-center lg:text-left font-extrabold leading-tight font-lora italic">
+          <h1 className="text-white text-[28px] sm:text-3xl md:text-5xl xl:text-6xl sm:text-center lg:text-left font-extrabold leading-tight font-lora italic">
             Hey, I&apos;m{" "}
             <span className="bg-[#ff014f] text-transparent bg-clip-text">
               Krishna <span className="hidden md:inline">K.</span> Gupta
             </span>
           </h1>
 
-          <h2 className="text-[18px] sm:text-2xl md:text-3xl xl:text-4xl font-semibold flex items-center gap-2">
+          <h2 className="text-white text-[18px] sm:text-2xl md:text-3xl xl:text-4xl font-semibold flex items-center gap-2">
             <span>{text}</span>
             <Cursor
               cursorBlinking={false}
